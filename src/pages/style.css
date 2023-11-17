@@ -1,0 +1,28 @@
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: center;
+    padding: .2rem;
+    gap:     .2rem;
+    border: #1b2e1a;
+    border-style: solid;
+    border-width: 2px;
+    height: 2.7rem;
+    align-content: stretch;
+}
+
+.navbutton {
+    background: #1b2e1a;
+    color: white;
+    padding: 0px;
+    flex-grow: 1;
+}
+
+.banner {
+    height: 20vh;
+    border: #1b2e1a;
+    border-style: solid;
+    border-width: 2px;
+    margin-bottom: .2rem;
+}

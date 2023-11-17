@@ -1,0 +1,7 @@
+(defun eejump-3 () (find-odecamsoilfile "README.md"))
+(defun eejump-4 () (find-odecamsoilfile "src/pages/index.js"))
+(defun eejump-44 () (find-odecamsoilfile "src/pages/style.css"))
+(defun eejump-441 () (find-odecamsoilfile "src/pages/style.css" ".navbar"))
+(defun eejump-442 () (find-odecamsoilfile "src/pages/style.css" ".navbutton"))
+(defun eejump-443 () (find-odecamsoilfile "src/pages/style.css" ".banner"))
+(defun eejump-41 () (find-odecamsoilfile "src/pages/index.js" "const IndexPage"))

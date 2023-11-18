@@ -36,6 +36,7 @@
     border-width: 2px;
     height: 2.7rem;
     align-content: stretch;
+
 }
 
 .navbutton {
@@ -43,6 +44,10 @@
     color: white;
     padding: 0px;
     flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .banner {

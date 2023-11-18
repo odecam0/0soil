@@ -1,10 +1,11 @@
 import React, {useRef, useState, useEffect} from "react";
+import {Link} from "gatsby";
 import clsx from "clsx";
 import "./style.css";
 
 // ( Another couple of things should be implemented now.
 // ( 1. DONE The appearing of the navbar when randomly scrolling up, should be an animation.
-// ( 2. The buttons on the navbar should lead to different pages.
+// ( 2. HALF DONE The buttons on the navbar should lead to different pages.
 // ( 3. The navbar + banner should be encapsulated in a Header component.
 // ( 4. Make the transition smooth, by making the calculation of header space smooth.
 
@@ -85,14 +86,26 @@ const IndexPage = () => {
 	<div className="banner&navbarContainer" >
 	    <div className="banner" ref={refBanner}/>
 	    <div className={clsx("fixedNavbar", !onHeader && "activeTransitionFixedNavbar", !activeFixedNavbar && "hideFixedNavbar")} >
-		<button className="navbutton">About</button>
-		<button className="navbutton">Skills</button>
-		<button className="navbutton">Projects</button>
+		<Link to="/" className="navbutton">
+			About
+		</Link>
+		<Link to="/skills" className="navbutton">
+			Skills
+		</Link>
+		<Link to="/projects" className="navbutton">
+			Projects
+		</Link>
 	    </div>
 	    <div className="navbar" ref={refNavbar} >
-		<button className="navbutton">About</button>
-		<button className="navbutton">Skills</button>
-		<button className="navbutton">Projects</button>
+		<Link to="/" className="navbutton">
+			About
+		</Link>
+		<Link to="/skills" className="navbutton">
+			Skills
+		</Link>
+		<Link to="/projects" className="navbutton">
+			Projects
+		</Link>
 	    </div>
 	    <div style={{height: "200vh"}}/>
 	</div>

@@ -1,13 +1,12 @@
-import React, {useRef, useState, useEffect} from "react"
-import "./style.css"
+import React, {useRef, useState, useEffect} from "react";
+import clsx from "clsx";
+import "./style.css";
 
-// (defun eejump-2 () (interactive) (swiper "//\\W(\\W[0-9]"))
-
-// ( 1.    HIDE-SHOW NAVBAR MECHANISM
-// ( 1.1   GET HEIGHT OF NAVBAR + BANNER
-// ( 1.2   ADD EVENT LISTENER TO SCROLL EVENT
-// ( 1.2.1 IF scrolled up   && navbar not visible THEN show fixed navbar
-// ( 1.2.2 IF scrolled down                       THEN hide fixed navbar
+// ( Another couple of things should be implemented now.
+// ( 1. DONE The appearing of the navbar when randomly scrolling up, should be an animation.
+// ( 2. The buttons on the navbar should lead to different pages.
+// ( 3. The navbar + banner should be encapsulated in a Header component.
+// ( 4. Make the transition smooth, by making the calculation of header space smooth.
 
 // ( This mechanism is going to be placed where?
 // ( Is it apropriate to put it on a page-layout component, that is called on
@@ -18,17 +17,19 @@ const IndexPage = () => {
     const refBanner = useRef(null);
     const refNavbar = useRef(null);
 
-    // ( Eu também quero que não seja ativado o mecanismo, a menos que tenha havido um scroll que passe
-    // ( de algum limiar definido. 
+    // ( Variáveis são utilizadas para implementar um mecanismo que só faz com que
+    // ( a barra de navegação apareça quando se escrola uma determinada quantidade
+    // ( para cima. Em contraste com a implementação trivial onde só de escrolar minimamente
+    // ( para cima, o navbar já aparece.
     const [previousScrollOffset, setPreviousScrollOffset] = useState(0);
     const [scrollAccumulator, setScrollAccumulator] = useState(0);
     const [isScrollingDown, setIsScrollingDown] = useState(false);
 
     const [activeFixedNavbar, setActiveFixedNavbar] = useState(false);
 
-    // ( Okay, algo está acontecendo aqui. Acho que talvez não possa utilizar os react states
-    // ( dentro de um eventlistener como este daqui, pois as variáveis não estão atualizando lá
-    // ( no console.
+    // ( This state tells wether the window is scrolled outside of the header area or not.
+    const [onHeader, setOnHeader] = useState(true);
+
     const handleScroll = () => {
 	// ( Okay, aqui há um grande probleminha.. A altura do banner+navbar não corresponde certinho
 	// ( ao que foi scrollado porque tem margens e tal... Por enquanto vou simplesmente adicionar uns
@@ -52,12 +53,17 @@ const IndexPage = () => {
 	}
 	setPreviousScrollOffset(scrollOffset);
 
-	if (scrollOffset < headerHeight)
-	    setActiveFixedNavbar(false)
-	else if (scrollAccumulator < 30)
-	    setActiveFixedNavbar(true)
-	else if (scrollAccumulator > 0)
-	    setActiveFixedNavbar(false)
+	if (scrollOffset < headerHeight) {
+	    setActiveFixedNavbar(false);
+	    setOnHeader(true);
+	}
+	else {
+	    setOnHeader(false);
+	    if (scrollAccumulator < 30)
+		setActiveFixedNavbar(true)
+	    else if (scrollAccumulator > 0)
+		setActiveFixedNavbar(false)
+	}
 
     }
 
@@ -72,18 +78,18 @@ const IndexPage = () => {
     });
 
 
+    // ( the transition when getting on header area, while fixed navbar is shown is not smooth yet because
+    // ( the calculation of the header area is not 100% yet.
     return (
 	// (find-odecamsoilfile "src/pages/style.css")
 	<div className="banner&navbarContainer" >
 	    <div className="banner" ref={refBanner}/>
-	    <div className="navbar" ref={refNavbar} style={activeFixedNavbar ?
-							   {
-							       position: "fixed",
-							       top: "0px",
-							       left: "0px",
-							       width: "-webkit-fill-available"
-
-							   } : {}}>
+	    <div className={clsx("fixedNavbar", !onHeader && "activeTransitionFixedNavbar", !activeFixedNavbar && "hideFixedNavbar")} >
+		<button className="navbutton">About</button>
+		<button className="navbutton">Skills</button>
+		<button className="navbutton">Projects</button>
+	    </div>
+	    <div className="navbar" ref={refNavbar} >
 		<button className="navbutton">About</button>
 		<button className="navbutton">Skills</button>
 		<button className="navbutton">Projects</button>

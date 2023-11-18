@@ -1,3 +1,29 @@
+.fixedNavbar {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: center;
+    padding: .2rem;
+    gap:     .2rem;
+    border: #1b2e1a;
+    border-style: solid;
+    border-width: 2px;
+    align-content: stretch;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: -webkit-fill-available;
+    height: 2.7rem;
+}
+
+.activeTransitionFixedNavbar {
+    transition: translate .5s;
+}
+
+.hideFixedNavbar {
+    translate: 0 -100%;
+}
+
 .navbar {
     display: flex;
     justify-content: space-evenly;

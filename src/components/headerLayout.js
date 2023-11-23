@@ -8,6 +8,7 @@ import "./headerLayout.css";
 // ( 2. DONE The buttons on the navbar should lead to different pages.
 // ( 3. DONE The navbar + banner should be encapsulated in a Header component.
 // ( 4. Make the transition smooth, by making the calculation of header space smooth.
+// (    (It is not smooth yet)
 // ( 5. Separate banner and navbar and css in this file.
 
 // ( This mechanism is going to be placed where?
@@ -18,6 +19,7 @@ const HeaderLayout = () => {
 
     const refBanner = useRef(null);
     const refNavbar = useRef(null);
+    const ref = useRef(null);
 
     // ( Variáveis são utilizadas para implementar um mecanismo que só faz com que
     // ( a barra de navegação apareça quando se escrola uma determinada quantidade
@@ -36,7 +38,9 @@ const HeaderLayout = () => {
 	// ( Okay, aqui há um grande probleminha.. A altura do banner+navbar não corresponde certinho
 	// ( ao que foi scrollado porque tem margens e tal... Por enquanto vou simplesmente adicionar uns
 	// ( pixels a mais para contar como a margem. mas não será certinho...
-	const headerHeight = 50 + refBanner.current.offsetHeight + refNavbar.current.offsetHeight;
+	// const headerHeight = 50 + refBanner.current.offsetHeight + refNavbar.current.offsetHeight;
+	const headerHeight = ref.current.offsetHeight;
+
 	const scrollOffset = window.pageYOffset;
 	const deltaScrollOffset = scrollOffset - previousScrollOffset;
 
@@ -84,8 +88,13 @@ const HeaderLayout = () => {
     // ( the calculation of the header area is not 100% yet.
     return (
 	// (find-odecamsoilfile "src/pages/style.css")
-	<div className="banner&navbarContainer" >
-	    <div className="banner" ref={refBanner}/>
+	<>
+	<div className="banner&navbarContainer" ref={ref} >
+	    <div className="banner" ref={refBanner}>
+		<span className="bannerText">
+		    Um textão aqui?
+		</span>
+	    </div>
 	    <div className={clsx("fixedNavbar", !onHeader && "activeTransitionFixedNavbar", !activeFixedNavbar && "hideFixedNavbar")} >
 		<Link to="/" className="navbutton">
 			About
@@ -108,9 +117,9 @@ const HeaderLayout = () => {
 			Projects
 		</Link>
 	    </div>
-	    <div style={{height: "200vh"}}/>
 	</div>
-
+	    <div style={{height: "200vh"}}/>
+</>
     )
 }
 

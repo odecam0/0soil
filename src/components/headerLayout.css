@@ -1,3 +1,7 @@
+.bannerText {
+    font-family: KdamThmorPro;
+}
+
 .fixedNavbar {
     display: flex;
     justify-content: space-evenly;

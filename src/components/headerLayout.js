@@ -83,6 +83,7 @@ const HeaderLayout = () => {
 	return () => window.removeEventListener("scroll", handleScroll);
     });
 
+    const refBannersText = useRef(null);
 
     // ( the transition when getting on header area, while fixed navbar is shown is not smooth yet because
     // ( the calculation of the header area is not 100% yet.
@@ -91,9 +92,7 @@ const HeaderLayout = () => {
 	<>
 	<div className="banner&navbarContainer" ref={ref} >
 	    <div className="banner" ref={refBanner}>
-		<span className="bannerText">
-		    Um textão aqui?
-		</span>
+		<span className="bannerText" ref={refBannersText}>0'Soil</span>
 	    </div>
 	    <div className={clsx("fixedNavbar", !onHeader && "activeTransitionFixedNavbar", !activeFixedNavbar && "hideFixedNavbar")} >
 		<Link to="/" className="navbutton">

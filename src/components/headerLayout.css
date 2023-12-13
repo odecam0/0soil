@@ -1,5 +1,6 @@
 .bannerText {
     font-family: KdamThmorPro;
+    font-size: 10vw;
 }
 
 .fixedNavbar {
@@ -60,4 +61,8 @@
     border-style: solid;
     border-width: 2px;
     margin-bottom: .2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

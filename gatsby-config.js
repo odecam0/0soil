@@ -18,6 +18,17 @@ module.exports = {
 		    file: "Kdam_Thmor_Pro/KdamThmorPro-Regular.css"
 		} ]
 	    }
+	},
+	{
+	    resolve: 'gatsby-transformer-remark',
+	    options: {},
+	},
+	{
+	    resolve: 'gatsby-source-filesystem',
+	    options: {
+		name: 'posts',
+		path: `${__dirname}/static/posts/`
+	    },
 	}
     ],
 }

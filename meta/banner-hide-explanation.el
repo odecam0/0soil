@@ -1,3 +1,10 @@
+;; (crtm-convert-buffer "../static/posts/first_post.md")
+
+;; remote_repo: https://github.com/odecam0/0soil
+;; commit_hash: 872e18b9158907b075235f026f7100618bd74328
+
+;; START
+
 ;; Este arquivo irá descrever o simples mecanismo implementado em React para exibir condicionalmente
 ;; uma segunda barra de navegação fixa no topo da tela caso a tela esteja sendo escrolada para cima,
 ;; e a primeira barra de navegação não esteja visível.
@@ -85,5 +92,3 @@
 
 ;; Aqui está a classe principal do elemento:
 (find-0soilcfile "headerLayout.css" ".fixedNavbar" '(mp))
-
-;; 

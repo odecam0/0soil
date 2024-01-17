@@ -1,0 +1,128 @@
+#+title: Uma lista de afazere ad-hoc do dia 31/07/2023
+
+* Fazer blog
+# (find-fline "~/daily/07-08-2023.org" "* Site pessoal")
+
+** Learning gatsby
+:LOGBOOK:
+CLOCK: [2023-09-01 sex 00:55]--[2023-09-01 sex 01:39] =>  0:44
+CLOCK: [2023-08-09 qua 16:14]--[2023-08-09 qua 16:45] =>  0:31
+CLOCK: [2023-08-07 seg 14:13]--[2023-08-07 seg 14:48] =>  0:35
+CLOCK: [2023-08-07 seg 11:05]--[2023-08-07 seg 11:21] =>  0:16
+CLOCK: [2023-08-07 seg 09:22]--[2023-08-07 seg 10:07] =>  0:45
+CLOCK: [2023-08-07 seg 08:32]--[2023-08-07 seg 09:10] =>  0:38
+:END:
+
+*** https://www.gatsbyjs.com/docs/tutorial/getting-started/part-0/
+
+# nodejs (v18 or newer)
+# (find-sh "n --help")
+node --version
+sudo n lts
+
+# Opt out of gatsby telemetry
+# https://www.gatsbyjs.com/docs/telemetry/
+#  (find-fline "~/.bashrc" "export GATSBY_TELEMETRY_DISABLED=1")
+npm install -g gatsby-cli
+gatsby --version
+gatsby --help
+gatsby telemetry --disable
+
+*** https://www.gatsbyjs.com/docs/tutorial/getting-started/part-1/
+
+# use vterm
+cd ~
+gatsby new
+tutorial-site
+tutorial-site
+javascript
+no
+no
+done
+# <select with arrows and enter>
+# Está demorando pra terminar de instalar alguma coisa...
+# (##################) ⠼ reify:gatsby: http fetch GET 200 https://registry.npmjs.org/g
+
+# Não vou criar o repositório
+
+
+cd ~/tutorial-site
+gatsby develop
+# npm run develop
+
+*** https://www.gatsbyjs.com/docs/tutorial/getting-started/part-2/
+
+(code-c-d "gatts" "~/tutorial-site/")
+# gatsby-tutorial-site -> gatts
+# (find-gattsfile ".dir-locals.el")
+# (find-gattsfile "")
+
+# (find-gattsfile "src/pages/index.js")
+# (find-gattsfile "src/pages/about.js")
+
+# (find-gattsfile "src/components/layout.js")
+# (find-gattsfile "src/components/layout.module.css")
+
+Cada página é um componente na pasta src/pages/
+Existe o Gatsby Head API, para adcionar metadata na parada.
+Temo module de CSS que dá estilo apenas para um componente.
+
+*** https://www.gatsbyjs.com/docs/tutorial/getting-started/part-3/
+
+cd ~
+npm install gatsby-plugin-image gatsby-plugin-sharp gatsby-source-filesystem
+
+(find-gattsfile "gatsby-config.js")
+(find-gattsfile "gatsby-config.js" "plugins:")
+
+(find-gattsfile "src/pages/index.js")
+(find-gattsfile "src/pages/index.js" "{ StaticImage }")
+(find-gattsfile "src/pages/index.js" "<StaticImage")
+
+(find-gattsfile "")
+
+*** https://www.gatsbyjs.com/docs/tutorial/getting-started/part-4/
+
+Um plugin de source traz dados de alguma fonte para o Data Layer.
+
+localhost:8000/___graphql tem uma interface para investigar queries com o graphql.
+
+Duas maneiras de acessar os dados no 'Data Layer':
+Usando o useStaticQuery em componentes que não são de página.
+Ou utilizando page queries em componentes de página.
+
+(find-gattsfile "gatsby-config.js" "siteMetadata")
+(find-gattsfile "gatsby-config.js" "tutorial-site")
+
+(find-gattsfile "src/components/")
+(find-gattsfile "src/components/layout.js")
+(find-gattsfile "src/components/layout.module.css")
+(find-gattsfile "src/components/seo.js")
+
+(find-gattsfile "src/pages/")
+(find-gattsfile "src/pages/index.js")
+(find-gattsfile "src/pages/about.js")
+
+(defun gindex () (interactive) (find-gattsfile "src/pages/index.js"))
+(defun gabout () (interactive) (find-gattsfile "src/pages/about.js"))
+(defun glayout () (interactive) (find-gattsfile "src/components/layout.js"))
+(defun gconfig () (interactive) (find-gattsfile "gatsby-config.js" "siteMetadata"))
+
+https://www.gatsbyjs.com/docs/tutorial/getting-started/part-4/#queries-in-page-components-create-a-blog-page-with-a-list-of-post-filenames
+
+(find-gattsfile "src/pages/blog.js")
+(defun gblog () (interactive) (find-gattsfile "src/pages/blog.js"))
+
+
+(find-gattsfile "blog/")
+(find-gattsfile "gatsby-config.js" "resolve: \"gatsby-source-filesystem\",")
+
+Se você estiver importando os dados em um componente de página,
+deve importar o graphql do gatsby, exportar um objeto com a query,
+e receber o resultado da query como um prop *data* no componente de página..
+(find-gattsfile "src/pages/blog.js" "export const query = graphql`")
+
+*** https://www.gatsbyjs.com/docs/tutorial/getting-started/part-5/
+
+Nodes are smallest pieces of data in the data layer.
+Transformer plugins tranform nodes of one type into another.

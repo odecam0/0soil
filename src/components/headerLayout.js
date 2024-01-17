@@ -3,7 +3,6 @@ import {Link} from "gatsby";
 import clsx from "clsx";
 import "./headerLayout.css";
 
-
 const HeaderLayout = () => {
 
     const refBanner = useRef(null);
@@ -16,6 +15,9 @@ const HeaderLayout = () => {
 
     const [activeFixedNavbar, setActiveFixedNavbar] = useState(false);
 
+    const [onHeader, setOnHeader] = useState(true);
+
+    const handleScroll = () => {
 
     const [onHeader, setOnHeader] = useState(true);
 
@@ -37,7 +39,7 @@ const HeaderLayout = () => {
 		setIsScrollingDown(false);
 		setScrollAccumulator(deltaScrollOffset);
 	    } else
-		setScrollAccumulator(scrollAccumulator + (deltaScrollOffset));
+		setScrollAccumulator(scrollAccumulator + deltaScrollOffset);
 	}
 	setPreviousScrollOffset(scrollOffset);
 

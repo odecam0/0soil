@@ -8,14 +8,16 @@ const IndexPage = ({ data }) => {
     return (
 	<>
 	    <HeaderLayout />
-	    <ul>
-		{
-		    data.allMarkdownRemark.nodes.map((node, i) => (
+	    <ul style={{"list-style-type": "none"}}>
+	    {
+		data.allMarkdownRemark.nodes.map((node, i) => (
+		    <li>
 			<Link key={i} to={node.path}>
 			    {"-> " + node.frontmatter.title}
 			</Link>
-		    ))
-		}
+		    </li>
+		))
+	    }
 	    </ul>
 	</>
     );

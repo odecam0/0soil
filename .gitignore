@@ -4,4 +4,6 @@ public
 reference-images/
 .dir-locals.el
 *~back
+public/
 *~
+meta/

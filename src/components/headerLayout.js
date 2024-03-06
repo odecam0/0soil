@@ -18,10 +18,6 @@ const HeaderLayout = () => {
     const [onHeader, setOnHeader] = useState(true);
 
     const handleScroll = () => {
-
-    const [onHeader, setOnHeader] = useState(true);
-
-    const handleScroll = () => {
 	// const headerHeight = 50 + refBanner.current.offsetHeight + refNavbar.current.offsetHeight;
 	const headerHeight = ref.current.offsetHeight;
 
@@ -68,35 +64,35 @@ const HeaderLayout = () => {
     return (
 
 	<>
-	<div className="banner&navbarContainer" ref={ref} >
-	    <div className="banner" ref={refBanner}>
-		<span className="bannerText" ref={refBannersText}>0'Soil</span>
-	    </div>
-	    <div className={clsx("fixedNavbar", !onHeader && "activeTransitionFixedNavbar", !activeFixedNavbar && "hideFixedNavbar")} >
-		<Link to="/" className="navbutton">
+	    <div className="banner&navbarContainer" ref={ref} >
+		<div className="banner" ref={refBanner}>
+		    <span className="bannerText" ref={refBannersText}>0'Soil</span>
+		</div>
+		<div className={clsx("fixedNavbar", !onHeader && "activeTransitionFixedNavbar", !activeFixedNavbar && "hideFixedNavbar")} >
+		    <Link to="/" className="navbutton">
 			About
-		</Link>
-		<Link to="/skills" className="navbutton">
+		    </Link>
+		    <Link to="/skills" className="navbutton">
 			Skills
-		</Link>
-		<Link to="/projects" className="navbutton">
+		    </Link>
+		    <Link to="/projects" className="navbutton">
 			Projects
-		</Link>
-	    </div>
-	    <div className="navbar" ref={refNavbar} >
-		<Link to="/" className="navbutton">
+		    </Link>
+		</div>
+		<div className="navbar" ref={refNavbar} >
+		    <Link to="/" className="navbutton">
 			About
-		</Link>
-		<Link to="/skills" className="navbutton">
+		    </Link>
+		    <Link to="/skills" className="navbutton">
 			Skills
-		</Link>
-		<Link to="/projects" className="navbutton">
+		    </Link>
+		    <Link to="/projects" className="navbutton">
 			Projects
-		</Link>
+		    </Link>
+		</div>
 	    </div>
-	</div>
 	    <div style={{height: "200vh"}}/>
-</>
+	</>
     )
 }
 

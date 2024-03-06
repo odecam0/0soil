@@ -20,7 +20,7 @@ Para isso o hook useRef do React foi utilizado.
 
 Refs são passados para os componentes do banner, da barra de navegação, e o div que engloba os dois
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.js#L20-L23)
+[Source: headerLayout.js L20-L23](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.js#L20-L23))
 ``` js
     const refBanner = useRef(null);
     const refNavbar = useRef(null);
@@ -28,7 +28,7 @@ Refs são passados para os componentes do banner, da barra de navegação, e o d
 
 ```
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.js#L92-L120)
+[Source: headerLayout.js L92-L120](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.js#L92-L120))
 ``` js
 	<>
 	    <div className="banner&navbarContainer" ref={ref} >
@@ -63,7 +63,7 @@ Refs são passados para os componentes do banner, da barra de navegação, e o d
 
 para que seus tamanhos sejam recuparado em tempo de execução
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.js#L37-L43)
+[Source: headerLayout.js L37-L43](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.js#L37-L43))
 ``` js
     const handleScroll = () => {
 	// ( Okay, aqui há um grande probleminha.. A altura do banner+navbar não corresponde certinho
@@ -81,12 +81,12 @@ Alguns valores são utilizados para controlar o scroll da página.
 Temos acesso ao quanto da página já foi escrolado de cima para baixo, como uma distância do topo
 da página.
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.js#L44-L44)
+[Source: headerLayout.js L44-L44](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.js#L44-L44))
 ``` js
 	const scrollOffset = window.pageYOffset;
 ```
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.js#L24-L31)
+[Source: headerLayout.js L24-L31](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.js#L24-L31))
 ``` js
     // ( Variáveis são utilizadas para implementar um mecanismo que só faz com que
     // ( a barra de navegação apareça quando se escrola uma determinada quantidade
@@ -112,7 +112,7 @@ corretamente
 
 https://stackoverflow.com/questions/55265255/react-usestate-hook-event-handler-using-initial-state
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.js#L76-L84)
+[Source: headerLayout.js L76-L84](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.js#L76-L84))
 ``` js
     useEffect(() => {
 	// ( Neste caso, o callback function tem de ser adicionado no window em todas as
@@ -134,7 +134,7 @@ na região onde a primeira barra está sendo exibida ou não..
 
 Em primeiro lugar, a quantidade que foi escrolada durante este evento de scroll é calculada.
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.js#L44-L46)
+[Source: headerLayout.js L44-L46](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.js#L44-L46))
 ``` js
 	const scrollOffset = window.pageYOffset;
 	const deltaScrollOffset = scrollOffset - previousScrollOffset;
@@ -147,7 +147,7 @@ Neste caso, verifica-se se os eventos de scroll anterioes também foram para bai
 , adciona-se o quanto foi escrolado neste evento, ao acumulador. Caso contrário, informa o componente
 que este scroll foi feito para cima, e reseta o acumulador para possuir apenas o valor do scroll atual.
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.js#L47-L52)
+[Source: headerLayout.js L47-L52](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.js#L47-L52))
 ``` js
 	if (deltaScrollOffset > 0) {
 	    if (!isScrollingDown) {
@@ -159,7 +159,7 @@ que este scroll foi feito para cima, e reseta o acumulador para possuir apenas o
 
 Caso deltaScrollOffset seja negativo, realizamos o mesmo procedimento na direção inversa.
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.js#L53-L58)
+[Source: headerLayout.js L53-L58](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.js#L53-L58))
 ``` js
 	} else if (deltaScrollOffset < 0) {
 	    if (isScrollingDown) {
@@ -171,7 +171,7 @@ Caso deltaScrollOffset seja negativo, realizamos o mesmo procedimento na direç�
 
 Em seguida informamos ao componente em altura o scroll deixou a tela neste evento.
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.js#L60-L60)
+[Source: headerLayout.js L60-L60](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.js#L60-L60))
 ``` js
 	setPreviousScrollOffset(scrollOffset);
 ```
@@ -183,7 +183,7 @@ Por último, checa-se o caso de o primeiro navbar estar sendo exibido comparando
 Estes valores são utilizados no JSX retornado por este componente para determinar quais elementos
 serão renderizados.
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.js#L62-L65)
+[Source: headerLayout.js L62-L65](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.js#L62-L65))
 ``` js
 	if (scrollOffset < headerHeight) {
 	    setActiveFixedNavbar(false);
@@ -195,7 +195,7 @@ Caso não esteja exibindo a primeira barra de navegação, checa-se o valor do a
 menor que 30, significa que foi escrolado 30 unidades para cima. Então deve exibir a segunda
 barra de navegação. Caso contrário, deve escondela.
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.js#L66-L72)
+[Source: headerLayout.js L66-L72](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.js#L66-L72))
 ``` js
 	else {
 	    setOnHeader(false);
@@ -212,7 +212,7 @@ barra de navegação. Caso contrário, deve escondela.
 Utilizando os estados descritos acima, e a ferramenta 'clsx', atribuo condicionalmente classes
 para o elemento html da segunda barra de navegação.
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.js#L97-L97)
+[Source: headerLayout.js L97-L97](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.js#L97-L97))
 ``` js
 		<div className={clsx("fixedNavbar", !onHeader && "activeTransitionFixedNavbar", !activeFixedNavbar && "hideFixedNavbar")} >
 ```
@@ -220,7 +220,7 @@ para o elemento html da segunda barra de navegação.
 Caso não esteja exibindo a primeira barra de navegação, ou seja, onHeader seja falso,
 atribuisse a seguinte classe ao elemento, que define uma animação de translação.
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.css#L24-L27)
+[Source: headerLayout.css L24-L27](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.css#L24-L27))
 ``` css
 .activeTransitionFixedNavbar {
     transition: translate .5s;
@@ -232,7 +232,7 @@ Caso a segunda barra não deva ser exibida, a classe hideFixedNavbar é atribuid
 Efetivamente ela move a barra de navegação para além da margem superior da tela.
 Como é definida uma animação encima da operação 'translate', ocorre uma animação.
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.css#L28-L31)
+[Source: headerLayout.css L28-L31](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.css#L28-L31))
 ``` css
 .hideFixedNavbar {
     translate: 0 -100%;
@@ -242,7 +242,7 @@ Como é definida uma animação encima da operação 'translate', ocorre uma ani
 
 Aqui está a classe principal do elemento:
 
-[Region on original file](https://github.com/odecam0/0soil/blob/da577d865e12f135a46eae2c03a8e238ba708a56/src/components/headerLayout.css#L6-L23)
+[Source: headerLayout.css L6-L23](https://github.com/odecam0/0soil/blob/0440a4a473eb4638b34bc5b779f0b5a8dae871ca/src/components/headerLayout.css#L6-L23))
 ``` css
 .fixedNavbar {
     display: flex;

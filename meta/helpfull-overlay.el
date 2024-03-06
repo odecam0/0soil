@@ -2,8 +2,7 @@
 ;; title: Helpfull Overlays
 ;; slug: helpfull_overlays
 ;; sexps: |
-;;     (debug-on-entry 'crtm-convert-buffer)
-;;     (cancel-debug-on-entry 'crtm-convert-buffer)
+;;     (setq crtm-remote-repo-url "https://github.com/odecam0/.config-emacs-/")
 ;;     (crtm-convert-buffer "../static/posts/second_post.md")
 ;;     (find-file           "../static/posts/second_post.md")
 ;; ---

@@ -91,7 +91,6 @@ const HeaderLayout = () => {
 		    </Link>
 		</div>
 	    </div>
-	    <div style={{height: "200vh"}}/>
 	</>
     )
 }

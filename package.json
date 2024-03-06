@@ -18,11 +18,6 @@
     "clsx": "^2.0.0",
     "gatsby": "^5.13.3",
     "gatsby-omni-font-loader": "^2.0.2",
-<<<<<<< HEAD
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0"
-=======
     "gatsby-plugin-mdx": "^5.12.3",
     "gatsby-source-filesystem": "^5.12.1",
     "react": "^18.2.0",
@@ -30,11 +25,6 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "gatsby-transformer-remark": "^6.12.3"
->>>>>>> 61169a4 (Basic structure, with comments on show/hide navbar)
-=======
     "gatsby-transformer-remark": "^6.13.1"
->>>>>>> f092a49 (new shit just got made)
   }
 }

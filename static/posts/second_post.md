@@ -2,8 +2,7 @@
 title: Helpfull Overlays
 slug: helpfull_overlays
 sexps: |
-    (debug-on-entry 'crtm-convert-buffer)
-    (cancel-debug-on-entry 'crtm-convert-buffer)
+    (setq crtm-remote-repo-url "https://github.com/odecam0/.config-emacs-/")
     (crtm-convert-buffer "../static/posts/second_post.md")
     (find-file           "../static/posts/second_post.md")
 ---
@@ -26,7 +25,7 @@ de links, cada grupo com uma quantidade diferente de links misturados com texto 
 ### Habilitando um meta-arquivo
 Há uma variável que indica qual o meta-arquivo que está sendo utilizado no momento.
 
-[Region on original file](https://github.com/odecam0/.config-emacs-/blob/0e8e51591be4b92a1304b79fadeaa6787c8552c4/meta/meta-file-double-link.el#L11-L13)
+[Source: meta-file-double-link.el L11-L13](https://github.com/odecam0/0soil/blob/a13038241f4a32bb4fcfe89b02a8f8954f9cd69e/meta/meta-file-double-link.el#L11-L13)
 ``` elisp
 (defvar _mc-current-meta-file nil
   "Holds the path to the current meta-file.")
@@ -36,7 +35,7 @@ Há uma variável que indica qual o meta-arquivo que está sendo utilizado no mo
 Há um arquivo especial que contém referências para diversos meta-arquivos. É como um meta-meta-arquivo.
 E existem funções para ativar meta-arquivos a partir do meta-meta-arquivo.
 
-[Region on original file](https://github.com/odecam0/.config-emacs-/blob/0e8e51591be4b92a1304b79fadeaa6787c8552c4/meta/overlay-meta-file.el#L35-L47)
+[Source: overlay-meta-file.el L35-L47](https://github.com/odecam0/0soil/blob/a13038241f4a32bb4fcfe89b02a8f8954f9cd69e/meta/overlay-meta-file.el#L35-L47)
 ``` elisp
 (defun brnm-activate-meta-file (num)
   (interactive "P")
@@ -57,7 +56,7 @@ E existem funções para ativar meta-arquivos a partir do meta-meta-arquivo.
 A função 'brnm-activate-meta-file' segue uma convenção definida em 'brnm-find-element-in-nth-paragraph'.
 Onde endereços numéricos são atribuídos aos links pertencentes aos diferentes grupos.
 
-[Region on original file](https://github.com/odecam0/.config-emacs-/blob/0e8e51591be4b92a1304b79fadeaa6787c8552c4/meta/meta-file-double-link.el#L88-L120)
+[Source: meta-file-double-link.el L88-L120](https://github.com/odecam0/0soil/blob/a13038241f4a32bb4fcfe89b02a8f8954f9cd69e/meta/meta-file-double-link.el#L88-L120)
 ``` elisp
 (defun brnm-find-element-in-nth-paragraph (num regexp)
   ()
@@ -107,7 +106,7 @@ Com um meta-arquivo habilitado, as seguintes funções auxiliam-me a interagir c
 
 ### Inserindo links no meta-arquivo
 
-[Region on original file](https://github.com/odecam0/.config-emacs-/blob/0e8e51591be4b92a1304b79fadeaa6787c8552c4/meta/overlay-meta-file.el#L102-L111)
+[Source: overlay-meta-file.el L102-L111](https://github.com/odecam0/0soil/blob/a13038241f4a32bb4fcfe89b02a8f8954f9cd69e/meta/overlay-meta-file.el#L102-L111)
 ``` elisp
 (defun brnm-insert-link-in-position-in-meta-file (num)
   (interactive "P")
@@ -121,7 +120,7 @@ Com um meta-arquivo habilitado, as seguintes funções auxiliam-me a interagir c
 
 ```
 
-[Region on original file](https://github.com/odecam0/.config-emacs-/blob/0e8e51591be4b92a1304b79fadeaa6787c8552c4/meta/overlay-meta-file.el#L80-L94)
+[Source: overlay-meta-file.el L80-L94](https://github.com/odecam0/0soil/blob/a13038241f4a32bb4fcfe89b02a8f8954f9cd69e/meta/overlay-meta-file.el#L80-L94)
 ``` elisp
 (defun brnm-insert-string-in-nth-position (num string)
   (interactive "P")
@@ -145,7 +144,7 @@ um link para aquela região é inserido na posição correta do meta-arquivo.
 
 ### Acessando um link por sua posição
 
-[Region on original file](https://github.com/odecam0/.config-emacs-/blob/0e8e51591be4b92a1304b79fadeaa6787c8552c4/meta/meta-file-double-link.el#L55-L62)
+[Source: meta-file-double-link.el L55-L62](https://github.com/odecam0/0soil/blob/a13038241f4a32bb4fcfe89b02a8f8954f9cd69e/meta/meta-file-double-link.el#L55-L62)
 ``` elisp
 (defun mc-meta-file-follow-link (num)
   (interactive "P")
@@ -157,7 +156,7 @@ um link para aquela região é inserido na posição correta do meta-arquivo.
 
 ```
 
-[Region on original file](https://github.com/odecam0/.config-emacs-/blob/0e8e51591be4b92a1304b79fadeaa6787c8552c4/meta/meta-file-double-link.el#L63-L85)
+[Source: meta-file-double-link.el L63-L85](https://github.com/odecam0/0soil/blob/a13038241f4a32bb4fcfe89b02a8f8954f9cd69e/meta/meta-file-double-link.el#L63-L85)
 ``` elisp
 (defun mc-meta-file-follow-link-generic (num meta-file)
   (interactive "P")
@@ -194,7 +193,7 @@ comando duas vezes.
 
 ### Ciclando entre links de um mesmo grupo
 
-[Region on original file](https://github.com/odecam0/.config-emacs-/blob/0e8e51591be4b92a1304b79fadeaa6787c8552c4/meta/overlay-meta-file.el#L247-L267)
+[Source: overlay-meta-file.el L247-L267](https://github.com/odecam0/0soil/blob/a13038241f4a32bb4fcfe89b02a8f8954f9cd69e/meta/overlay-meta-file.el#L247-L267)
 ``` elisp
 (defun brnm-cycle-meta-groups-links ()
   (interactive)
@@ -226,7 +225,7 @@ repetidas vezes.
 
 ### Agora o tal do Helpful Overlay
 
-[Region on original file](https://github.com/odecam0/.config-emacs-/blob/0e8e51591be4b92a1304b79fadeaa6787c8552c4/meta/overlay-meta-file.el#L210-L219)
+[Source: overlay-meta-file.el L210-L219](https://github.com/odecam0/0soil/blob/a13038241f4a32bb4fcfe89b02a8f8954f9cd69e/meta/overlay-meta-file.el#L210-L219)
 ``` elisp
 (defun brnm-helpfull-overlays ()
   (interactive)
@@ -252,7 +251,7 @@ ao lado da região sublinhada.
 As duas funções que permitem que isso ocorra são 'brnm-put-overlay-trough-sexp-and-number-position'
 e 'brnm-get-regexp-positions-numbered'.
 
-[Region on original file](https://github.com/odecam0/.config-emacs-/blob/0e8e51591be4b92a1304b79fadeaa6787c8552c4/meta/overlay-meta-file.el#L115-L156)
+[Source: overlay-meta-file.el L115-L156](https://github.com/odecam0/0soil/blob/a13038241f4a32bb4fcfe89b02a8f8954f9cd69e/meta/overlay-meta-file.el#L115-L156)
 ``` elisp
 ;; «walk-through-buffer»  (to ".walk-through-buffer")
 (defun brnm-get-regexp-positions-numbered (regexp)
@@ -301,7 +300,7 @@ e 'brnm-get-regexp-positions-numbered'.
 Esta função gera uma estrutura de dados com uma lista de pares. Onde cada par contém um link
 e uma posição numérica.
 
-[Region on original file](https://github.com/odecam0/.config-emacs-/blob/0e8e51591be4b92a1304b79fadeaa6787c8552c4/meta/overlay-meta-file.el#L179-L195)
+[Source: overlay-meta-file.el L179-L195](https://github.com/odecam0/0soil/blob/a13038241f4a32bb4fcfe89b02a8f8954f9cd69e/meta/overlay-meta-file.el#L179-L195)
 ``` elisp
 (defun brnm-put-overlay-trough-sexp-and-number-position (sexp-number)
   ()
@@ -326,7 +325,7 @@ Esta função recebe um par com um link e um número, acessa o link, e baseado n
 overlay com um sublinhado de alguma cor, e com o número adicionado à direita da string que está
 sendo apontada pelo link.
 
-[Region on original file](https://github.com/odecam0/.config-emacs-/blob/0e8e51591be4b92a1304b79fadeaa6787c8552c4/meta/overlay-meta-file.el#L199-L202)
+[Source: overlay-meta-file.el L199-L202](https://github.com/odecam0/0soil/blob/a13038241f4a32bb4fcfe89b02a8f8954f9cd69e/meta/overlay-meta-file.el#L199-L202)
 ``` elisp
 (defun brnm-iterate-over-list-of-sexps-with-number-position (list)
   ()

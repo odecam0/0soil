@@ -1,0 +1,49 @@
+# Parallel Commit
+
+## Motivação
+
+Comumente eu me via adicionando, em arquivos de código fonte, comentários e conteúdos que eram úteis apenas para mim.
+Chamareis estes conteúdos de meta-conteúdos, pois são comumente informações sobre o próprio código, 
+como links para outras regiões do código, explicações extensas, e pequenos programas de teste. (Vide eev)
+
+Reconheci isto como uma boa prática. 
+Desenvolver software se tornou uma tarefa prazerosa para mim quando tive a epifania de que o código fonte 
+pode refletir o meu próprio estilo de raciocinar.
+Em contraste com a ideia que eu tinha antes, de que há um padrão e qualquer coisa que foge a este padrão está errado,
+é ruim, e deve ser julgado por aqueles que desenvolvem seguindo o padrão.
+É claro que existem boas práticas, e quando as respeitamos, conseguimos resultados mais elegantes e fáceis de serem
+mantidos por outros desenvolvedores. 
+
+Este código é uma tentativa justamente de conciliar estes dois fenômenos descritos acima.
+
+Eu não poderia adicionar meta-conteúdos em arquivos compartilhados, como códigos fonte de repositórios públicos, ou qualquer arquivo que fosse 
+posteriormente ser editado por outra pessoa, pois nesse caso a pessoa se depararia com uma porção de conteúdos inúteis, e provavelmente iria me xingar.
+
+Então a coisa mais plausível que me surgiu para sanar este problema foi o seguinte pensamento:
+"E se eu tivesse 2 branches no git, uma com meus meta-conteúdos e outra sem eles?"
+"Seriam duas branches paralelas, será que o git tem suporte para este tipo de coisa?"
+
+Poisé, o git não tem. Não que eu saiba.
+
+## Como funciona
+
+Meus requisitos eram, a branch que estará compartilhada com outros (chamarei de original-branch), não pode ter nenhum
+commit filho da branch que possui meta-conteúdos (chamarei de meta-branch). Mas nada impede o meta-branch de ser filho
+de algum commit do original branch.
+
+Dessa forma, quando alguma alteração for feita na branch original, posso atualizar minha meta-branch simplesmente fazendo
+um merge na meta-branch, com a branch original.
+
+Porém, quando faço alterações no meta-branch, e quero que estas alterações sejam aplicadas na branch original, aí é necessário
+filtrar os meta-conteúdos, e adicionalos na branch original, sem que haja merge algum, para não adulterar a branch original.
+
+É isto que o código que chamo de parallel commit realiza.
+Algumas regexps definem quais trechos de texto são considerados como meta conteúdo.
+E o código filtra estes conteúdos, salva em memória, muda de branch, e aplica estes conteúdos 
+substituindo o arquivo inteiro que foi modificado.
+
+Algumas coisas são importantes.
+De alguma forma o código deve saber, quais são os arquivos que foram modificados em relação ao branch original?
+
+Há o conceito syncronia. Como saber qual a última sincronia realizada entre meta e original?
+

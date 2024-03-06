@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "clsx": "^2.0.0",
-    "gatsby": "^5.12.4",
+    "gatsby": "^5.13.3",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-mdx": "^5.12.3",
     "gatsby-source-filesystem": "^5.12.1",
@@ -25,6 +25,6 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "gatsby-transformer-remark": "^6.12.3"
+    "gatsby-transformer-remark": "^6.13.1"
   }
 }

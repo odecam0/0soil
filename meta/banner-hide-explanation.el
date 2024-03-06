@@ -1,9 +1,13 @@
-;; (crtm-convert-buffer "../static/posts/first_post.md")
+;; ---
+;; title: Hiding navbar based on scroll
+;; slug: hiding_navbar_based_on_scroll
+;; sexps: |
+;;     (setq crtm-remote-repo-url "https://github.com/odecam0/0soil/")
+;;     (crtm-convert-buffer "../static/posts/first_post.md")
+;; ---
 
-;; remote_repo: https://github.com/odecam0/0soil
-;; commit_hash: 872e18b9158907b075235f026f7100618bd74328
-
-;; START
+;; Hiding navbar based on scroll
+;; =============================
 
 ;; Este arquivo irá descrever o simples mecanismo implementado em React para exibir condicionalmente
 ;; uma segunda barra de navegação fixa no topo da tela caso a tela esteja sendo escrolada para cima,
